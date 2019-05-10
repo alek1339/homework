@@ -2,11 +2,20 @@
   <div class="row" *ngIf="players">
     <div class="col-lg-6">
       <div *ngFor="let player of players">
-        <h2>
-          {{ player.name }}
-        </h2>
-        <p>{{ player.age }}</p>
-        <button class="btn btn-success" *ngIf="auth.isAdmin()">Edit</button>
+        <h2>Name: {{ player.name }}</h2>
+        <img src="{{ player.picture }}" alt="" *ngIf="player.picture" />
+        <p>Age: {{ player.age }}</p>
+        <p>Games: {{ player.games }}</p>
+        <p>Goals: {{ player.goals }}</p>
+        <p>Assists: {{ player.assists }}</p>
+        <button
+          class="btn btn-success"
+          *ngIf="auth.isAdmin()"
+          routerLink="/players/edit/id:{{ player._id }}"
+        >
+          Edit
+        </button>
+        <hr />
       </div>
     </div>
   </div>

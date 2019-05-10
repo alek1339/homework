@@ -1,0 +1,75 @@
+<div class="container">
+  <h2>Create Player</h2>
+  <div *ngIf="editForm">
+    <form
+      action=""
+      class="form-group"
+      [formGroup]="editForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <input
+        type="text"
+        placeholder="Player Name"
+        class="form-control"
+        formControlName="name"
+      />
+      <span *ngIf="!editForm.get('name').valid && editForm.get('name').touched"
+        >Please enter a valid name!</span
+      >
+      <input
+        type="number"
+        placeholder="Player Age"
+        class="form-control"
+        formControlName="age"
+      />
+      <span *ngIf="!editForm.get('age').valid && editForm.get('age').touched"
+        >Please enter a valid age!</span
+      >
+      <input
+        type="number"
+        placeholder="Player Games"
+        class="form-control"
+        formControlName="games"
+      />
+      <span
+        *ngIf="!editForm.get('games').valid && editForm.get('games').touched"
+        >Please enter a valid number of games!</span
+      >
+      <input
+        type="number"
+        placeholder="Scored Goals"
+        class="form-control"
+        formControlName="goals"
+      />
+      <span
+        *ngIf="!editForm.get('goals').valid && editForm.get('goals').touched"
+        >Please enter a valid number of goals!</span
+      >
+      <input
+        type="number"
+        placeholder="Assists"
+        class="form-control"
+        formControlName="assists"
+      />
+      <span
+        *ngIf="
+          !editForm.get('assists').valid && editForm.get('assists').touched
+        "
+        >Please enter a valid number of assists!</span
+      >
+      <input
+        type="text"
+        placeholder="Picture URL"
+        class="form-control"
+        formControlName="picture"
+      />
+      <span
+        *ngIf="
+          !editForm.get('picture').valid && editForm.get('picture').touched
+        "
+        >Please enter a valid number of picture!</span
+      >
+      <button type="submit" class="btn btn-info">Save</button>
+    </form>
+  </div>
+</div>

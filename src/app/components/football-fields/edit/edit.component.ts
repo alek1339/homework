@@ -19,9 +19,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.fieldService.getById().subscribe(data => {
-      console.log("debug-data>>>", data);
       this.field = new Field(data);
-      console.log("debug-fields>>>", this.field);
       this.editForm = new FormGroup({
         name: new FormControl(this.field.name, Validators.required),
         address: new FormControl(this.field.address, [

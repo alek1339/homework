@@ -35,4 +35,32 @@ router.post("/add", (req, res) => {
     .catch(err => console.log("Error:" + err));
 });
 
+// @route   GET server/player/id
+// @desc    Get Single player
+// @access  Public
+router.get("/id", (req, res) => {
+  let lastIndexOfId = req.headers.referer.lastIndexOf("id");
+  const id = req.headers.referer.slice(lastIndexOfId + 3);
+
+  Player.findById(id)
+    .sort({ date: -1 })
+    .then(posts => res.json(posts))
+    .catch(err => res.status(404).json({ noplayerfound: "No Player found" }));
+});
+
+// @route  POST server/players/edit
+// @desc Edit player
+// @access Private
+router.put("/id", (req, res) => {
+  let lastIndexOfId = req.headers.referer.lastIndexOf("id");
+  const id = req.headers.referer.slice(lastIndexOfId + 3);
+  Player.findByIdAndUpdate(id, { $set: req.body }, function(err, result) {
+    if (err) {
+      console.log("Error:" + err);
+    }
+    // console.log("RESULT: " + result);
+    res.json("Done");
+  });
+});
+
 module.exports = router;

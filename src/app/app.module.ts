@@ -20,6 +20,7 @@ import { AdminPanelComponent } from "./components/admin/admin-panel/admin-panel.
 import { AllPlayersComponent } from "./components/players/all-players/all-players.component";
 import { CreatePlayerComponent } from "./components/players/create-player/create-player.component";
 import { PlayersService } from "./services/players.service";
+import { EditPlayerComponent } from "./components/players/edit-player/edit-player.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PlayersService } from "./services/players.service";
     WellcomeComponent,
     AdminPanelComponent,
     AllPlayersComponent,
-    CreatePlayerComponent
+    CreatePlayerComponent,
+    EditPlayerComponent
   ],
   imports: [
     BrowserModule,

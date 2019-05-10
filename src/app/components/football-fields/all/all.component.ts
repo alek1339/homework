@@ -16,7 +16,6 @@ export class AllComponent implements OnInit {
   ngOnInit() {
     this.fieldService.getAll().subscribe(data => {
       this.fields = data;
-      console.log(data);
     });
   }
 }

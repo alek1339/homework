@@ -17,6 +17,7 @@ import { AdminPanelComponent } from "./components/admin/admin-panel/admin-panel.
 
 import { AdminGuard } from "./guards/admin.guard";
 import { LoggedGuard } from "./guards/logged.guard";
+import { EditPlayerComponent } from "./components/players/edit-player/edit-player.component";
 
 const routes: Routes = [
   { path: "", component: WellcomeComponent },
@@ -48,6 +49,11 @@ const routes: Routes = [
   {
     path: "football-fields/edit/:id",
     component: EditComponent,
+    canActivate: [AdminGuard]
+  },
+  {
+    path: "players/edit/:id",
+    component: EditPlayerComponent,
     canActivate: [AdminGuard]
   },
   // { path: "football-fields/edit", component: EditComponent },
